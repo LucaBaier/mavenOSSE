@@ -34,9 +34,13 @@ public class ResidentServiceTest {
 		testService.setResidentRepository(new ResidentRepositoryStub());
 		
 		try {
-			pattern1 = new Resident("Ma*", null, null, "Berlin", null);
-			pattern2 = new Resident(null, null, null, null, format.parse("25.08.1975"));
-			pattern3 = new Resident("Lu", null, null, null, null);
+			pattern1 = new Resident();
+			pattern1.setGivenName("Ma*");
+			pattern1.setCity("Berlin");
+			pattern2 = new Resident();
+			pattern2.setDateOfBirth(format.parse("25.08.1975"));
+			pattern3 = new Resident();
+			pattern3.setFamilyName("Lu*");
 		} catch (ParseException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
